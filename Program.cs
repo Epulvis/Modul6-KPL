@@ -4,6 +4,12 @@ internal class Program
 {
     private static void Main(string[] args)
     {
+        //Test User berisi Null
+        SayaTubeUser UserTest = new("");
+
+        //Test User berisi lebih dari 200 karakter
+        SayaTubeVideo UserTest2 = new (new string('A', 201));
+
         SayaTubeUser User = new("zuhri");
         SayaTubeVideo Video1 = new("Review Film TelU 1 oleh Zuhri");
         SayaTubeVideo Video2 = new("Review Film TelU 2 oleh Zuhri");
@@ -15,6 +21,22 @@ internal class Program
         SayaTubeVideo Video8 = new("Review Film TelU 8 oleh Zuhri");
         SayaTubeVideo Video9 = new("Review Film TelU 9 oleh Zuhri");
         SayaTubeVideo Video10 = new("Review Film TelU 10 oleh Zuhri");
+
+        //Test pemambahan Video berisi Null
+        try
+        {
+            User.AddVideo();
+        } catch
+        {
+            Console.WriteLine("Video Tidak Boleh berisi Null");
+        }
+
+        //tesr overflow
+        for (int i = 0; i < 100; i++)
+        {
+            Video1.IncreasePlayCount(10000000);
+        }
+
 
         Video1.IncreasePlayCount(50);
         Video1.PrintVideoDetails();
